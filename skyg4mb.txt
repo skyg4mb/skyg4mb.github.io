@@ -1,5 +1,5 @@
-<span id="a">Diego@Gamboa</span>:<span id="b">~</span><span id="c">$</span> cd CodeNerve/<!-- laglaglaglaglaglag -->About_Us
-<span id="a">Diego@Gamboa</span>:<span id="b">~</span><span id="c">$</span> cat <!-- laglaglaglaglaglaglaglaglag -->skyg4mb.txt<br/><br/>
+<span id="a">diego@gamboa</span>:<span id="b">~</span><span id="c">$</span> cd CodeNerve/<!-- laglaglaglaglaglag -->About_Us
+<span id="a">diegog@gamboa</span>:<span id="b">~</span><span id="c">$</span> cat <!-- laglaglaglaglaglaglaglaglag -->skyg4mb.txt<br/><br/>
 My favorite code quote, "<span id="k">Quote you like</span>". <!-- sjkfhskjf -->
 
 Hey There! This is the portflio website in the skin of a terminal.<!-- laglaglaglaglaglaglaglaglaglaglaglag --><p>You can see that, this is how your portfolio would look like.</p>
