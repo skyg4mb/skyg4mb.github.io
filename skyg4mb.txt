@@ -7,7 +7,6 @@ Hola! Este es mi portafolio.<!-- laglaglaglaglaglaglaglaglaglaglaglag -->
 <p>Mi nombre es Alejandro Gamboa, soy ingeniero electronico desde el 2004, estudiante eterno tratando de llegar a ser hacker.</p> 
 <!-- bitlagbitlagbitlagbitlag -->
 <!-- delaydelaydelaydelaydelaydelaydelay -->
-<!-- moredelaymoredelaymoredelaymoredelaymoredelaymoredelay-->
 <p> 
   Principales proyectos, aqui: 
   <br> 
