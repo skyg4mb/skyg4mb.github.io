@@ -7,20 +7,15 @@ Hola! Este es mi portafolio.<!-- laglaglaglaglaglaglaglaglaglaglaglag -->
 <p>Mi nombre es Alejandro Gamboa, soy ingeniero electronico desde el 2004, estudiante eterno tratando de llegar a ser hacker.</p> 
 <!-- bitlagbitlagbitlagbitlag -->
 <!-- delaydelaydelaydelaydelaydelaydelay -->
-<p>Tell more about yourself. 
-  <br><br><br>
-  Give your project links or something like that. 
-  <a href="link"> Here you go</a>.
-</p>
 <!-- moredelaymoredelaymoredelaymoredelaymoredelaymoredelay-->
 <p> 
-  You can give links to other professional profiles you have on Internet, here: 
+  Principales proyectos, aqui: 
   <br> 
   <a href="link1">Profile1</a> 
   <br> 
   <a href="link2">Profile2</a> 
     and <br> 
   <a href="link3">Profile3</a>.</p>
-    You can also give your email ID for contacting you<!-- slightdelayhere-->, feel free to send me an email at<!-- longlonglongcomment -->
-  <a href="Your email ID">https://mypublicinbox.com/skyg4mb</a>.
+    Puedes contactarme por medio de mi PublicInbox<!-- slightdelayhere-->, sientete en la libertad de escribir:<!-- longlonglongcomment -->
+  <a href="https://mypublicinbox.com/skyg4mb">My public inbox</a>.
 <p>Cheers!</p>
