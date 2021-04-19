@@ -5,7 +5,7 @@
 Hola! Este es mi portafolio.<!-- laglaglaglaglaglaglaglaglaglaglaglag -->
 <p>You can see that, this is how your portfolio would look like.</p>
 <p>Mi nombre es Alejandro Gamboa, soy ingeniero electronico desde el 2004, estudiante eterno tratando de llegar a ser hacker.</p> 
-<!-- bitlagbitlagbitlagbitlagbitlagbitlag -->
+<!-- bitlagbitlagbitlagbitlag -->
 <p> 
 La mayor parte de mi vida he trabajado con tecnologias de informacion, he sido desarrollador junior, senior y master, en algun momento quise ser DBA y estudie bases de datos, esto me abrio las puertas de un mundo sin igual de pruebas de intrusion, redteam, blueteam, purpleteam y todos los colores de teams, en ese momento decidi profundizar en computacion por medio de una maestria y luego una especializacion en seguridad informatica, espero algun dia comenzar a escribir y enseñar lo que he aprendido.<a href="link"> portfolio</a>.
 </p>
