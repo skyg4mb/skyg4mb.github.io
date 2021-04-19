@@ -12,7 +12,8 @@ Hola! Este es mi portafolio.<!-- laglaglaglaglaglaglaglaglaglaglaglag -->
   <br> 
   <a href="link2">Profile2</a> 
     and <br> 
-  <a href="link3">Profile3</a>.</p>
+  <a href="link3">Profile3</a>.
+</p>
     Puedes contactarme por medio de mi PublicInbox<!-- slightdelayhere-->, sientete en la libertad de escribir:<!-- longlonglongcomment -->
-  <a href="https://mypublicinbox.com/skyg4mb">My public inbox</a>.
+<a href="https://mypublicinbox.com/skyg4mb">My public inbox</a>.
 <p>Cheers!</p>
