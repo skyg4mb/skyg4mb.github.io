@@ -1,11 +1,9 @@
 <span id="a">diego@gamboa</span>:<span id="b">~</span><span id="c">$</span> cd hackers/<!-- laglaglaglaglaglag -->About_Us
 <span id="a">diegog@gamboa</span>:<span id="b">~</span><span id="c">$</span> cat <!-- laglaglaglaglaglaglaglaglag -->skyg4mb.txt<br/><br/>
 "<span id="k">No creas lo que tus ojos te dicen. Sólo muestran las limitaciones. Mira con tu entendimiento, descubre lo que ya sabes y hallarás la manera de volar.</span>". <!-- sjkfhskjf -->
-
 Hola! Este es mi portafolio.<!-- laglaglaglaglaglaglaglaglaglaglaglag -->
 <p>You can see that, this is how your portfolio would look like.</p>
 <p>Mi nombre es Alejandro Gamboa, soy ingeniero electronico desde el 2004, estudiante eterno tratando de llegar a ser hacker.</p> 
-<!-- bitlagbitlagbitlagbitlag -->
 <!-- delaydelaydelaydelaydelaydelaydelay -->
 <p> 
   Principales proyectos, aqui: 
