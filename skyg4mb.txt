@@ -10,6 +10,7 @@ Hola! Este es mi portafolio.<!-- laglaglaglaglaglaglaglaglaglaglaglag -->
 <!-- delaydelaydelaydelaydelaydelaydelay -->
 <!-- moredelaymoredelaymoredelaymoredelaymoredelaymoredelay-->
 <!-- bitlagbitlagbitlagbitlag -->
+<br>
 <p> 
   Principales proyectos, aqui: 
   <br> 
