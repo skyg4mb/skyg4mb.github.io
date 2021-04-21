@@ -1,5 +1,5 @@
-<span id="a">diego@gamboa</span>:<span id="b">~</span><span id="c">$</span> cd hackers/<!-- laglaglaglaglaglag -->About_Us
-<span id="a">diegog@gamboa</span>:<span id="b">~</span><span id="c">$</span> cat <!-- laglaglaglaglaglaglaglaglag -->skyg4mb.txt<br/><br/>
+<span id="a">alejandro@gamboa</span>:<span id="b">~</span><span id="c">$</span> cd hackers/<!-- laglaglaglaglaglag -->About_Us
+<span id="a">alejandro@gamboa</span>:<span id="b">~</span><span id="c">$</span> cat <!-- laglaglaglaglaglaglaglaglag -->skyg4mb.txt<br/><br/>
 "<span id="k">No creas lo que tus ojos te dicen. Sólo muestran las limitaciones. Mira con tu entendimiento, descubre lo que ya sabes y hallarás la manera de volar.</span>". 
 
 <!-- sjkfhskjf -->
@@ -14,7 +14,7 @@ Hola! Este es mi portafolio.<!-- laglaglaglaglaglaglaglaglaglaglaglag -->
 <p> 
   Principales proyectos, aqui: 
   <br> 
-  <a href="link1">Profile1</a> 
+  <a href="link1">Profile1</a>
   <br> 
   <a href="link2">Profile2</a> 
     and <br> 
