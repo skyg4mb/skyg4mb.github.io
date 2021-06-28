@@ -8,7 +8,7 @@ Hola! Este es mi portafolio.<!-- laglaglaglaglaglaglaglaglaglaglaglag -->
 <p>I'm Alejandro Gamboa, Electronic engineer since 2004, always learning, trying harder.</p> 
 <!-- delaydelaydelaydelaydelaydelaydelay -->
 <!-- moredelaymoredelaymoredelaymoredelaymoredelaymoredelay-->
-<!-- bitlagbitlagbitlagbitlag -->
+#<!-- bitlagbitlagbitlagbitlag -->
 <br>
 <p> 
   Principales proyectos, aqui: 
