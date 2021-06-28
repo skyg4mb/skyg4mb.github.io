@@ -5,7 +5,7 @@
 <!-- sjkfhskjf -->
 <br>
 Hola! Este es mi portafolio.<!-- laglaglaglaglaglaglaglaglaglaglaglag -->
-<p>Mi nombre es Alejandro Gamboa, soy ingeniero electronico desde el 2004, estudiante eterno tratando de llegar a ser hacker.</p> 
+<p>I'm Alejandro Gamboa, Electronic engineer since 2004, always learning, trying harder.</p> 
 <!-- delaydelaydelaydelaydelaydelaydelay -->
 <!-- moredelaymoredelaymoredelaymoredelaymoredelaymoredelay-->
 <!-- bitlagbitlagbitlagbitlag -->
