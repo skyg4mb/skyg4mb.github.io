@@ -13,9 +13,9 @@ Hola! Este es mi portafolio.<!-- laglaglaglaglaglaglaglaglaglaglaglag -->
 <p> 
   Principales proyectos, aqui: 
   <br> 
-  <a href="https://github.com/skyg4mb/NeoVimConfig">Setup of my text editor.</a>
+  <a href="https://github.com/skyg4mb/NeoVimConfig">Setup of text editor.</a>
   <br> 
-  <a href="https://github.com/skyg4mb/crkdb">My keyboard layout on C++</a> 
+  <a href="https://github.com/skyg4mb/crkdb">Keyboard layout on C++</a> 
     and <br> 
   <a href="https://github.com/skyg4mb/Volatily-GUI">Graphic user interface for volatility</a>.
 </p>
