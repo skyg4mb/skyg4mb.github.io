@@ -4,11 +4,11 @@
 
 <!-- sjkfhskjf -->
 <br>
-Hola! Este es mi portafolio.<!-- laglaglaglaglaglaglaglaglaglaglaglag -->
+Ehlo<!-- laglaglaglaglaglaglaglaglaglaglaglag -->
 <p>I'm Alejandro Gamboa, Electronic engineer since 2004, always learning, trying harder.</p> 
 <!-- delaydelaydelaydelaydelaydelaydelay -->
 <!-- moredelaymoredelaymoredelaymoredelaymoredelaymoredelay-->
-#<!-- bitlagbitlagbitlagbitlag -->
+<!-- bitlagbitlagbitlagbitlag -->
 <br>
 <p> 
   My principal project right now is the "ofelia" incident response software, you can manage an incident, including colaborators, malware, netowrk management and IoCs 
