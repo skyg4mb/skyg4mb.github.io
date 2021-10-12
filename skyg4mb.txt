@@ -11,13 +11,10 @@ Hola! Este es mi portafolio.<!-- laglaglaglaglaglaglaglaglaglaglaglag -->
 #<!-- bitlagbitlagbitlagbitlag -->
 <br>
 <p> 
-  Principales proyectos, aqui: 
+  My principal project right now is the "ofelia" incident response software, you can manage an incident, including colaborators, malware, netowrk management and IoCs 
   <br> 
-  <a href="https://github.com/skyg4mb/NeoVimConfig">Setup of text editor.</a>
+  <a href="https://ofelia.tech">Ofelia</a>
   <br> 
-  <a href="https://github.com/skyg4mb/crkdb">Keyboard layout on C++</a> 
-    and <br> 
-  <a href="https://github.com/skyg4mb/Volatily-GUI">Graphic user interface for volatility</a>.
 </p>
     Puedes contactarme por medio de mi PublicInbox<!-- slightdelayhere-->, sientete en la libertad de escribir:<!-- longlonglongcomment -->
 <a href="https://mypublicinbox.com/skyg4mb">My public inbox</a>.
