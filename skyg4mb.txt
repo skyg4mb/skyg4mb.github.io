@@ -16,6 +16,6 @@ Hola! Este es mi portafolio.<!-- laglaglaglaglaglaglaglaglaglaglaglag -->
   <a href="https://ofelia.tech">Ofelia</a>
   <br> 
 </p>
-    Puedes contactarme por medio de mi PublicInbox<!-- slightdelayhere-->, sientete en la libertad de escribir:<!-- longlonglongcomment -->
+    You can contact me through my PublicInbox<!-- slightdelayhere-->, feel free to write:<!-- longlonglongcomment -->
 <a href="https://mypublicinbox.com/skyg4mb">My public inbox</a>.
 <p>Cheers!</p>
