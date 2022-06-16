@@ -5,16 +5,20 @@
 <!-- sjkfhskjf -->
 <br>
 Helo<!-- laglaglaglaglaglaglaglaglaglaglaglag -->
-<p>I'm Alejandro Gamboa, Electronic engineer since 2004, always learning, trying harder.</p> 
+<p>Welcome to my site, here I'll put my documents of interest weekly, and put the updates of my personal projects. I'm incident responder and forensic analyst.</p> 
 <!-- delaydelaydelaydelaydelaydelaydelay -->
 <!-- moredelaymoredelaymoredelaymoredelaymoredelaymoredelay-->
 <!-- bitlagbitlagbitlagbitlag -->
 <br>
-<p> 
-  My principal project right now is the "ofelia" incident response software, you can manage an incident, including colaborators, malware, netowrk management and IoCs 
-  <br> 
-  <a href="https://ofelia.tech">Ofelia</a>
-  <br> 
+<p>
+	Personar project:
+  	<br> 
+  		SceneRecon
+  	</br> 
+	<br>
+		The SceneRecon project, is an application for document an incident, reconstructing the scene and document all finds.
+	</br>
+	
 </p>
     You can contact me through my PublicInbox<!-- slightdelayhere-->, feel free to write:<!-- longlonglongcomment -->
 <a href="https://mypublicinbox.com/skyg4mb">My public inbox</a>.
