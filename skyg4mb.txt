@@ -20,8 +20,4 @@ The SceneRecon project, is an application for document an incident, reconstructi
 
 <span id="a">Click <a href="https://github.com/SceneRecon">here</a> for view or use the project.</span>
 
-
-You can contact me through my PublicInbox<!-- slightdelayhere-->, feel free to write:<!-- longlonglongcomment -->
-
-<a href="https://mypublicinbox.com/skyg4mb">My public inbox</a>.
 <p>Cheers!</p>
