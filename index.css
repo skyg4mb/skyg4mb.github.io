@@ -47,3 +47,63 @@ a {
     	99% { color: black; }
 }
 
+
+/************************
+        HEADER
+      ************************/
+ 
+      .page-header{
+        overflow: hidden;
+        background: #444;
+        padding: 1em 0 0 ;
+      }
+ 
+      .page-header .center-contents{
+        max-width: 650px;
+        margin:auto;
+        overflow: hidden;
+      }
+ 
+      .logo{
+        max-width: 60px;
+        display: block;
+        float: left;
+        margin: 0 0 1em 1em;
+      }
+ 
+      .logo img{
+        display: block;
+      }
+ 
+      .page-nav{
+        color: #fff;
+        float:right;
+      }
+ 
+      .page-nav ul, .page-nav li{
+        list-style:none;
+        margin:0;
+        padding: 0;
+        float: left;
+      }
+ 
+      .page-nav a{
+        color: #fff;
+        width: 100%;
+        height: auto;
+        display: block;
+        padding: 0.75em 1em;
+        text-decoration: none;
+        cursor: pointer;
+      }
+ 
+ 
+      /************************
+        MAIN CONTENTS
+      ************************/
+ 
+      .page-contents{
+        padding:0 1em;
+        max-width: 650px;
+        margin:auto;
+      }
