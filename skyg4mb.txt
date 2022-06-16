@@ -12,8 +12,8 @@ Helo<!-- laglaglaglaglaglaglaglaglaglaglaglag -->
 <p>
 	Personal projects:
   	<br> 
-  		<span id="a">alejandro@theshire</span>:<span id="b">~</span><span id="c">$</span> cd Projects/
-		<span id="a">alejandro@theshire</span>:<span id="b">~</span><span id="c">$</span> cat SceneRecon
+  		<span id="a">alejandro@theshire</span>:<span id="b">~</span><span id="c">$</span><span id="e"> cd Projects/ </span>
+		<span id="a">alejandro@theshire</span>:<span id="b">~</span><span id="c">$</span><span id="e"> cat SceneRecon </span>
   	</br> 
 	The SceneRecon project, is an application for document an incident, reconstructing the scene and document all finds.
 </p>
