@@ -109,3 +109,8 @@ a {
         max-width: 650px;
         margin:auto;
       }
+
+.container{
+	background-color: black;
+}
+
