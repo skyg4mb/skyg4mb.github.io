@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>
+        Hacking a Better SentinelOne ::
+        keyboardcrunch — Tech stuff from keyboardcrunch
+      </title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="One of my few frustrations with modern EDR tooling are that most all of them have thrown out one of the most useful features of the legacy anti-virus, scanning of USB drives. They&amp;rsquo;re a vector for malicious files onto the network, files that could migrate to other places in your network before they&amp;rsquo;re ever analyzed, and this can possibly be an issue with compliance regulations (or at least a frustrated CISO as I experienced)."
+/>
+<meta
+  name="keywords"
+  content="blog, personal, tech"
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://keyboardcrunch.github.io/posts/hacking_a_better_sentinelone/" />
+
+
+
+
+
+<link rel="stylesheet" href="https://keyboardcrunch.github.io/assets/style.css" />
+
+<link rel="stylesheet" href="https://keyboardcrunch.github.io/style.css" />
+
+
+<link
+  rel="apple-touch-icon-precomposed"
+  sizes="144x144"
+  href="https://keyboardcrunch.github.io/img/apple-touch-icon-144-precomposed.png"
+/>
+<link rel="shortcut icon" href="https://keyboardcrunch.github.io/img/favicon.png" />
+
+
+<link href="https://keyboardcrunch.github.io/assets/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://keyboardcrunch.github.io/assets/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://keyboardcrunch.github.io/assets/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://keyboardcrunch.github.io/assets/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://keyboardcrunch.github.io/assets/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://keyboardcrunch.github.io/assets/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Hacking a Better SentinelOne"/>
+<meta name="twitter:description" content="One of my few frustrations with modern EDR tooling are that most all of them have thrown out one of the most useful features of the legacy anti-virus, scanning of USB drives. They&rsquo;re a vector for malicious files onto the network, files that could migrate to other places in your network before they&rsquo;re ever analyzed, and this can possibly be an issue with compliance regulations (or at least a frustrated CISO as I experienced)."/>
+
+
+
+<meta property="og:title" content="Hacking a Better SentinelOne" />
+<meta property="og:description" content="One of my few frustrations with modern EDR tooling are that most all of them have thrown out one of the most useful features of the legacy anti-virus, scanning of USB drives. They&rsquo;re a vector for malicious files onto the network, files that could migrate to other places in your network before they&rsquo;re ever analyzed, and this can possibly be an issue with compliance regulations (or at least a frustrated CISO as I experienced)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://keyboardcrunch.github.io/posts/hacking_a_better_sentinelone/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-03-26T12:43:36-05:00" />
+<meta property="article:modified_time" content="2022-03-26T12:43:36-05:00" /><meta property="og:site_name" content="keyboardcrunch" />
+
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >keyboardcrunch</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="https://github.com/keyboardcrunch/">Projects</a></li>
+        
+      
+        
+          <li><a href="https://twitter.com/keyboard_crunch/">Twitter</a></li>
+        
+      
+      
+      
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="https://github.com/keyboardcrunch/">Projects</a></li>
+      
+    
+      
+        <li><a href="https://twitter.com/keyboard_crunch/">Twitter</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title">Hacking a Better SentinelOne</h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          2022-03-26
+        </span>
+
+        
+          
+        
+      
+
+      
+
+
+      
+    </div>
+
+    
+
+    
+
+    <div class="post-content">
+      
+      <p>One of my few frustrations with modern EDR tooling are that most all of them have thrown out one of the most useful features of the legacy anti-virus, scanning of USB drives. They&rsquo;re a vector for malicious files onto the network, files that could migrate to other places in your network before they&rsquo;re ever analyzed, and this can possibly be an issue with compliance regulations (or at least a frustrated CISO as I experienced). So cool, USB content is ignored until it&rsquo;s written somewhere else&hellip; Guess what? EDR&rsquo;s like Crowdstrike and SentinelOne don&rsquo;t do on-write scanning for SMB/NFS (usually just on-execute). Now if you work with a lot of vendors with software, firmware, and documents then you&rsquo;ll know it&rsquo;s best to get those off USB and onto a network share. So let&rsquo;s abuse a feature of SentinelOne to add on-connect USB device scanning.</p>
+<h3 id="the-lead">The Lead</h3>
+<p>Within the SentinelOne /docs we can see that the Sentinel Agent implements a COM server with a few methods that can be used to create a custom application (like a tray application). The documentation mostly makes references to threat and infected status, and the documentation and sample code provided is lacking. So let&rsquo;s just start digging here.</p>
+<h3 id="james-forshaws-oleview">James Forshaw&rsquo;s OleView</h3>
+<p>Since we know the Program ID to investigate, <a href="https://github.com/tyranid/oleviewdotnet">OleView</a> is a good place to start. We start by navigating to the &ldquo;Prog IDs&rdquo; section under the Registry menu. The documentation references <code>SentinelAgent.1</code>, so let&rsquo;s start by opening the Type Library of ISentinelAgent (as it&rsquo;s the most obvious).
+<img src="../../static/hacking_better_sentinelone/OleView_SentinelAgent1.png" alt="OleView SentinelAgent.1"></p>
+<p><img src="../../static/hacking_better_sentinelone/OleView_DSentinelAgentEvents.png" alt="OleView SentinelAgentLibrary"></p>
+<h3 id="prototyping-some-code">Prototyping Some Code</h3>
+<p>Above, we can see that DSentinelAgentEvents exposes a few methods, the one we care about happens to be the <code>OnDeviceControlEvent</code> which looks to spit out a Json object. So let&rsquo;s prototype some Python code using <a href="https://pypi.org/project/pywin32/">pywin32</a> that will connect a COM client to SentinelAgent.1 and dump a Device Control event.</p>
+<pre><code>import json
+import win32api
+import win32com
+import win32com.client
+import pythoncom
+
+class AgentEvents:
+    def OnDeviceControlEvent(self, event):
+        device_event = json.loads(event)
+        print(json.dumps(device_event), indent=4, sort_keys=True) # print the event
+
+agent = win32com.client.DispatchWithEvents(&quot;SentinelAgent.1&quot;, AgentEvents)
+pythoncom.PumpMessages()
+</code></pre><p>Below are the results we get for a USB connection.</p>
+<pre><code>{
+    &quot;deviceClass&quot;: 8,
+    &quot;deviceName&quot;: &quot;SanDisk Cruzer Blade&quot;,
+    &quot;eventId&quot;: &quot;{96e5a854-abb7-11ec-ba75-000c29ad0249}&quot;,
+    &quot;eventType&quot;: &quot;connected&quot;,
+    &quot;interface&quot;: &quot;USB&quot;,
+    &quot;productId&quot;: 21863,
+    &quot;ruleId&quot;: &quot;-1&quot;,
+    &quot;serialId&quot;: &quot;4C530110050104113372&quot;,
+    &quot;timestamp&quot;: &quot;2022-03-24T21:19:00.894+00:00&quot;,
+    &quot;vendorId&quot;: 1921
+}
+</code></pre><p>A little unfortunate that it doesn&rsquo;t contain the drive letter or mount path, but we can at least piggyback off this connection event, and we can see a way forward for filtering on events to just Class=8 (mass storage) and Type=connected; we could even filter out trusted USB devices by <code>serialId</code> if we wanted to.</p>
+<p>Let&rsquo;s add <code>win32file</code> to our imports and just do a bit of drive enumeration.</p>
+<pre><code>if device_event[&quot;eventType&quot;] == &quot;connected&quot; and device_event[&quot;deviceClass&quot;] == 8:
+    drives = win32api.GetLogicalDriveStrings().split('\x00')[:-1]
+    for device in drives:
+        drive_type = win32file.GetDriveType(device)
+        if drive_type == win32file.DRIVE_REMOVABLE:
+            print(&quot;We need to scan the %s drive&quot;, device)
+</code></pre><h3 id="scanning-the-drive">Scanning the Drive</h3>
+<p>So now we have some basic code that will run and wait for a USB device connection, if it&rsquo;s a &lsquo;connected&rsquo; event for a removable storage drive it&rsquo;ll print out <em>&ldquo;We need to scan the X:\ drive&rdquo;</em>. So let&rsquo;s figure out how we&rsquo;ll trigger the scan. We know we can scan files or folders using SentinelCtl commands (we are good SentinelOne administrators), and with a bit of testing we can confirm that it doesn&rsquo;t require administrative priviledges to initiate a scan, so our problem is locating the binary.</p>
+<p>My first swing at this uses yet more Sentinel COM hackery, as I know that <code>SentinelHelper.1</code> has a <code>GetAgentStatusJSON</code> method that will return a bunch of information about the agent. The downside, it requires administrative priviledges, so we&rsquo;ll need to find a better method later.</p>
+<p><img src="../../static/hacking_better_sentinelone/OleView_ISentinelHelper.png" alt="OleView SentinelHelper"></p>
+<p>We really just want the full path to the SentinelCtl.exe binary, so we need to grab the currently installed agent version to know the path. And since we have the device drive/mount path as the <code>device</code> variable, we can just mock up the full execution of the scan. It&rsquo;s good to test this to see if we&rsquo;ll have any pop-up from the agent for these scans.</p>
+<pre><code>import win32com
+import win32file
+import subprocess
+
+# Find the running agent version and craft full path for SentinelCtl.exe
+agent_com = win32com.client.Dispatch(&quot;SentinelHelper.1&quot;).GetAgentStatusJSON()
+agent_info = json.loads(agent_com)
+sentinelctl = &quot;C:\Program Files\SentinelOne\Sentinel Agent %s\SentinelCtl.exe&quot; % agent_info[&quot;agent-version&quot;]
+
+# Execute SentinelCtl.exe scan_folder -i device
+scan_status = subprocess.run([sentinelctl, 'scan_folder', '-i', device], stdout=subprocess.PIPE).stdout.decode('utf-8')
+</code></pre><p>Testing this I saw no pop-ups or activity from the tray icon, and the scan_status simply states that the scan was initiated. So what if a scan was already running, well&hellip; sadly a new scan request will fail, but SentinelCtl provides a <code>is_scan_in_process</code> command that will state <em>&ldquo;Scan is in progress&rdquo;</em> if one is already going, so maybe our end code should kill any running scans?</p>
+<h3 id="the-prototype">The Prototype</h3>
+<p>With the above code we can successfully monitor for new USB mass storage devices being connected, and initiate a scan with SentinelCtl on that drive, while handling some specific behavior regarding running scans. <a href="https://github.com/keyboardcrunch/sentinelone_usbscan/blob/main/usbscan.py">usbscan.py</a> is just a quick proof of concept, but I&rsquo;ve thrown in some logging and the ability to run completely without any administrative priviledges. I won&rsquo;t cover it here, but next steps are to compile and sign a Windows binary and install it as a low priviledged service.</p>
+
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h"
+              >Read other posts</span
+            >
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+            
+              <span class="button next">
+                <a href="https://keyboardcrunch.github.io/posts/recommended-sentinelone-custom-detections/">
+                  <span class="button__text">Recommended SentinelOne Custom Detections</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+
+    
+      
+        
+
+      
+    
+  </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">© keyboardcrunch</div>
+      
+  </div>
+</footer>
+
+<script src="https://keyboardcrunch.github.io/assets/main.js"></script>
+<script src="https://keyboardcrunch.github.io/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>
+        Recommended SentinelOne Custom Detections ::
+        keyboardcrunch — Tech stuff from keyboardcrunch
+      </title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="Deep Visibility SentinelOne Deep Visibility has a very powerful language for querying on nearly any endpoint activity you&amp;rsquo;d want to dig up. I&amp;rsquo;ve been using the Watchlist feature very heavily; from detecting common phishing Url patterns, unapproved software, insider threats, to LOLBAS activity. But very soon the Watchlist feature will be superseded by Custom Detections, basically Watchlist with ranking and remediation options.
+The purpose of this post is to document a few top priority queries that go beyond the granular queries I&amp;rsquo;ve created and shared before."
+/>
+<meta
+  name="keywords"
+  content="blog, personal, tech"
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://keyboardcrunch.github.io/posts/recommended-sentinelone-custom-detections/" />
+
+
+
+
+
+<link rel="stylesheet" href="https://keyboardcrunch.github.io/assets/style.css" />
+
+<link rel="stylesheet" href="https://keyboardcrunch.github.io/style.css" />
+
+
+<link
+  rel="apple-touch-icon-precomposed"
+  sizes="144x144"
+  href="https://keyboardcrunch.github.io/img/apple-touch-icon-144-precomposed.png"
+/>
+<link rel="shortcut icon" href="https://keyboardcrunch.github.io/img/favicon.png" />
+
+
+<link href="https://keyboardcrunch.github.io/assets/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://keyboardcrunch.github.io/assets/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://keyboardcrunch.github.io/assets/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://keyboardcrunch.github.io/assets/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://keyboardcrunch.github.io/assets/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://keyboardcrunch.github.io/assets/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Recommended SentinelOne Custom Detections"/>
+<meta name="twitter:description" content="Deep Visibility SentinelOne Deep Visibility has a very powerful language for querying on nearly any endpoint activity you&rsquo;d want to dig up. I&rsquo;ve been using the Watchlist feature very heavily; from detecting common phishing Url patterns, unapproved software, insider threats, to LOLBAS activity. But very soon the Watchlist feature will be superseded by Custom Detections, basically Watchlist with ranking and remediation options.
+The purpose of this post is to document a few top priority queries that go beyond the granular queries I&rsquo;ve created and shared before."/>
+
+
+
+<meta property="og:title" content="Recommended SentinelOne Custom Detections" />
+<meta property="og:description" content="Deep Visibility SentinelOne Deep Visibility has a very powerful language for querying on nearly any endpoint activity you&rsquo;d want to dig up. I&rsquo;ve been using the Watchlist feature very heavily; from detecting common phishing Url patterns, unapproved software, insider threats, to LOLBAS activity. But very soon the Watchlist feature will be superseded by Custom Detections, basically Watchlist with ranking and remediation options.
+The purpose of this post is to document a few top priority queries that go beyond the granular queries I&rsquo;ve created and shared before." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://keyboardcrunch.github.io/posts/recommended-sentinelone-custom-detections/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-04-15T19:16:38-05:00" />
+<meta property="article:modified_time" content="2021-04-15T19:16:38-05:00" /><meta property="og:site_name" content="keyboardcrunch" />
+
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >keyboardcrunch</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="https://github.com/keyboardcrunch/">Projects</a></li>
+        
+      
+        
+          <li><a href="https://twitter.com/keyboard_crunch/">Twitter</a></li>
+        
+      
+      
+      
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="https://github.com/keyboardcrunch/">Projects</a></li>
+      
+    
+      
+        <li><a href="https://twitter.com/keyboard_crunch/">Twitter</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title">Recommended SentinelOne Custom Detections</h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          2021-04-15
+        </span>
+
+        
+          
+        
+      
+
+      
+
+
+      
+    </div>
+
+    
+
+    
+
+    <div class="post-content">
+      
+      <h2 id="deep-visibility">Deep Visibility</h2>
+<p>SentinelOne Deep Visibility has a very powerful language for querying on nearly any endpoint activity you&rsquo;d want to dig up. I&rsquo;ve been using the Watchlist feature very heavily; from detecting common phishing Url patterns, unapproved software, insider threats, to LOLBAS activity. But very soon the Watchlist feature will be superseded by Custom Detections, basically Watchlist with ranking and remediation options.</p>
+<p>The purpose of this post is to document a few top priority queries that go beyond the granular queries I&rsquo;ve created and shared before. The queries shared here will attempt to cover a number of sub-techniques within a single query to reduce the number of saved queries required in the console. This may result in some possibly crazy looking queries but I&rsquo;ve attempted to format them in a logical manner that you can take from them what you will.</p>
+<p><em>I must note that I write a lot of these queries late at night, console up on one monitor and a VM for executing Atomic Red Team up on another. With that said, there may be a few copy/paste or format mistakes, but I&rsquo;m treating this as a live document and will maintain it for a few months.</em></p>
+<h2 id="tactics-and-techniques">Tactics and Techniques</h2>
+<p>Below I have compiled 8 techniques covering more than 12 sub-techniques (12 queries total), and attempted to document the sub-techniques covered and purpose of the queries. The goal was to add to or fill gaps with SentinelOne detections.</p>
+<p><em>I&rsquo;m aware that the theme for this site changes code blocks to full caps, but copy/paste formatting should be the same. If you experience otherwise please copy these queries from the <a href="https://github.com/keyboardcrunch/keyboardcrunch.github.io/blob/master/content/posts/Recommended-SentinelOne-Custom-Detections.md">markdown copy</a>.</em></p>
+<ul>
+<li><a href="#t1003-os-credential-dumping">T1003 OS Credential Dumping</a></li>
+<li><a href="#t1053-scheduled-taskjob">T1053 Scheduled Task/Job</a></li>
+<li><a href="#t1562-impair-defenses">T1562 Impair Defenses</a></li>
+<li><a href="#t1059-command-and-scripting-interpreter">T1059 Command and Scripting Interpreter</a></li>
+<li><a href="#t1218-signed-binary-proxy-execution">T1218 Signed Binary Proxy Execution</a></li>
+<li><a href="#t1482-domain-trust-discovery">T1482 Domain Trust Discovery</a></li>
+<li><a href="#t1548002-abuse-elevation-control-mechanism">T1548.002 Abuse Elevation Control Mechanism</a></li>
+<li><a href="#t1027004-compile-after-delivery">T1027.004 Compile After Delivery</a></li>
+</ul>
+<h3 id="t1003-os-credential-dumping">T1003 OS Credential Dumping</h3>
+<p><strong>Tactic:</strong>  Credential Access</p>
+<p><strong>Platforms:</strong> Windows</p>
+<p><strong>Reference:</strong> <a href="https://attack.mitre.org/techniques/T1003/">https://attack.mitre.org/techniques/T1003/</a></p>
+<p><strong>Sub-Techniques:</strong> T1003.001 LSASS Memory, T1003.003 NTDS</p>
+<p><strong>Description:</strong> Credential theft being the ultimate goal before moving on to lateral movement, the below sub-techniques are commonly observed by actors and go beyond the general detections.</p>
+<p><strong>Query:</strong></p>
+<pre><code>( TgtProcImageSha1 = &quot;f0c52cea19c204f5cdbe952cc7cfc182e20d8d43&quot; OR TgtProcCmdline ContainsCIS &quot;-ma lsass.exe&quot; OR TgtProcCmdline RegExp &quot;(?i)comsvcs.dl.*(minidump)&quot; OR TgtFilePath = &quot;C:\Windows\Temp\dumpert.dmp&quot; OR TgtFilePath RegExp &quot;^.*lsass.*.DMP&quot; OR (SrcProcCmdline ContainsCIS &quot;sekurlsa::minidump&quot; OR SrcProcCmdline ContainsCIS &quot;sekurlsa::logonpasswords&quot;) OR SrcProcCmdline ContainsCIS &quot;live lsa&quot; )
+OR
+( SrcProcCmdline RegExp &quot;^.*copy.*\\Windows\\NTDS\\NTDS.dit.*&quot; OR SrcProcCmdline RegExp &quot;^.*copy.*\\Windows\\System32\\config\\SYSTEM .*&quot; OR SrcProcCmdline ContainsCIS &quot;save HKLM\SYSTEM&quot; OR (TgtProcName = &quot;ntdsutil.exe&quot; AND TgtProcCmdline ContainsCIS &quot;ac i ntds&quot;) )
+</code></pre><h3 id="t1053-scheduled-taskjob">T1053 Scheduled Task/Job</h3>
+<p><strong>Tactic:</strong>  Execution, Persistence, Privilege Escalation</p>
+<p><strong>Platforms:</strong> Windows</p>
+<p><strong>Reference:</strong> <a href="https://attack.mitre.org/techniques/T1053/">https://attack.mitre.org/techniques/T1053/</a></p>
+<p><strong>Sub-Techniques:</strong> T1053.002 Windows AT, T1053.005 Scheduled Task</p>
+<p><strong>Description:</strong> Common in the persistence stage of attacks is the scheduling of tasks. Combined into a single query is the detection of the two most common sub-techniques, AT command and scheduled tasks.</p>
+<p><strong>Query:</strong></p>
+<pre><code>( TgtProcName = &quot;at.exe&quot; AND TgtProcCmdLine ContainsCIS &quot;/interactive &quot; )
+OR
+( ( ( TgtProcName = &quot;schtasks.exe&quot; AND TgtProcCmdLine ContainsCIS &quot;/create&quot; ) OR ( SrcProcCmdLine ContainsCIS &quot;New-ScheduledTask&quot; OR SrcProcCmdScript  ContainsCIS &quot;New-ScheduledTask&quot; ) ) AND SrcProcParentName Not In (&quot;services.exe&quot;, &quot;OfficeClickToRun.exe&quot; ) AND ObjectType != &quot;cross_process&quot; )
+</code></pre><h3 id="t1562-impair-defenses">T1562 Impair Defenses</h3>
+<p><strong>Tactic:</strong> Defense Evasion</p>
+<p><strong>Platforms:</strong> Windows, Linux</p>
+<p><strong>Reference:</strong> <a href="https://attack.mitre.org/techniques/T1562/">https://attack.mitre.org/techniques/T1562/</a></p>
+<p><strong>Description:</strong> It&rsquo;s not uncommon for attackers to take actions to blind defenders and one of the easiest and most common is to disable system logging, turning off the firewall, or disabling Windows security features. Below I&rsquo;ve broken out three queries that focus on detecting those attacks, and each of those queries is broken up logically by OR statements that could be used separately. Threre are so many detections to be built out for T1562, especially <a href="https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1562.001/T1562.001.md">T1562.001</a> That I recommend you dig deeper into this.</p>
+<h4 id="t1562001-disable-logging">T1562.001 Disable Logging</h4>
+<p><strong>Description:</strong> In order, this script detects the disabling of Syslog and two methods of disabling Sysmon logging.</p>
+<pre><code>( TgtProcName In Contains ( &quot;service&quot;, &quot;chkconfig&quot;, &quot;systemctl&quot; ) AND TgtProcCmdLine In Contains ( &quot;rsyslog stop&quot;, &quot;off rsyslog&quot;, &quot;stop rsyslog&quot;, &quot;disable rsyslog&quot; ) )
+OR
+( TgtProcName = &quot;fltmc.exe&quot; AND TgtProcCmdLine ContainsCIS &quot;unload SysmonDrv&quot; )
+OR
+( TgtProcName = &quot;sysmon.exe&quot; AND TgtProcCmdLine ContainsCIS &quot;-u&quot; )
+</code></pre><h4 id="t1562001-disable-security">T1562.001 Disable Security</h4>
+<p><strong>Description:</strong> The below query will detect disabling of AMSI providers or the disabling of Excel security features.</p>
+<pre><code>( RegistryPath ContainsCIS &quot;\Microsoft\AMSI\Providers&quot; AND EventType In ( &quot;Registry Key Delete&quot;, &quot;Registry Value Delete&quot; ) )
+OR
+( RegistryKeyPath ContainsCIS &quot;Excel\Security&quot; OR RegistryKeyPath ContainsCIS &quot;Excel\Security\ProtectedView&quot;) AND RegistryKeyPath In Contains Anycase ( &quot;VBAWarnings&quot;,&quot;DisableInternetFilesInPV&quot;,&quot;DisableUnsafeLocationsInPV&quot;,&quot;DisableAttachementsInPV&quot; ) AND EventType In ( &quot;Registry Value Create&quot;,&quot;Registry Value Modified&quot; ) )
+</code></pre><h4 id="t1562004-tamper-with-firewall">T1562.004 Tamper with Firewall</h4>
+<p><strong>Description:</strong> In order, the below query will detect the disable of the Windows firewall followed by methods for disabling the Linux firewall.</p>
+<pre><code>( TgtProcName = &quot;netsh.exe&quot; AND TgtProcCmdLine ContainsCIS &quot;state off&quot; )
+OR
+( SrcProcName In Contains (&quot;service&quot;,&quot;chkconfig&quot;) AND SrcProcCmdLine In Contains (&quot;off&quot;,&quot;stop&quot;) AND SrcProcCmdLine ContainsCIS &quot;tables&quot;) OR (TgtProcName = &quot;systemctl&quot; AND TgtProcCmdLine In Contains (&quot;stop&quot;,&quot;disable&quot;) AND TgtProcCmdLine Contains &quot;firewalld&quot; )
+</code></pre><h3 id="t1059-command-and-scripting-interpreter">T1059 Command and Scripting Interpreter</h3>
+<p><strong>Tactic:</strong> Execution</p>
+<p><strong>Platforms:</strong> Windows</p>
+<p><strong>Reference:</strong> <a href="https://attack.mitre.org/techniques/T1059/">https://attack.mitre.org/techniques/T1059/</a></p>
+<p><strong>Description:</strong> Attackers often abuse the command and script interpreters already present on systems to execute malicious code. For relevance and fidelity I&rsquo;ve broken detections out into detecting two different common methods, execution of scripts from temp directories and Powershell download cradles.</p>
+<h4 id="t1059001-powershell-download-cradles">T1059.001 Powershell Download Cradles</h4>
+<p><strong>Description:</strong> There are many methods for initiating a file download with Powershell, and a few obscure ways of executing Powershell, so here we&rsquo;re focusing on the command strings for detection.</p>
+<pre><code>ProcessCmd In Contains Anycase  ( &quot;Net.WebClient&quot;, &quot;(iwr&quot;, &quot;DownloadString(&quot;, &quot;WinHttp.WinHttpRequest&quot;  , &quot;IEX &quot;, &quot;| IEX&quot;, &quot;InternetExplorer.Application&quot;, &quot;Msxml2.XMLHTTP&quot;, &quot;DownloadString(&quot; )
+</code></pre><h4 id="t1059-execution-from-temp-directories">T1059 Execution from Temp Directories</h4>
+<p><strong>Sub-Techniques:</strong> T1059.003 Windows Command Shell, T1059.005 Visual Basic</p>
+<p><strong>Description:</strong> The below will detect either cscript or cmd executing a bat or vbs from any Temp directory, regardless of case.</p>
+<pre><code>SrcProcName In ( &quot;cscript.exe&quot;, &quot;cmd.exe&quot; ) AND SrcProcCmdLine RegExp &quot;(?i)\bTemp\b.*\.(bat|vbs)&quot; AND SrcProcParentName != &quot;msiexec.exe&quot;
+</code></pre><h3 id="t1218-signed-binary-proxy-execution">T1218 Signed Binary Proxy Execution</h3>
+<p><strong>Tactic:</strong> Execution</p>
+<p><strong>Platforms:</strong> Windows</p>
+<p><strong>Reference:</strong> <a href="https://attack.mitre.org/techniques/T1218/">https://attack.mitre.org/techniques/T1218/</a></p>
+<p><strong>Description:</strong>
+Signed binary proxy execution is a method for bypassing standard defenses through execution of malicious content by signed binaries. I&rsquo;ve decided to build these out as two queries, focusing on execution of scripts and remote content, because the other sub-techniques are require a lot of environment specific tuning.</p>
+<h4 id="t1218-script-execution">T1218 Script Execution</h4>
+<p><strong>Sub-Techniques:</strong> T1218.005 Mshta, T1218.011 Rundll32</p>
+<pre><code>SrcProcName In ( &quot;mshta.exe&quot;, &quot;rundll32.exe&quot; ) and SrcProcCmdLine In Contains Anycase ( &quot;javascript:&quot;, &quot;vbscript:&quot;, &quot;wscript.shell&quot;, &quot;env:appdata&quot;, &quot;script:&quot;, &quot;mshtml,RunHTMLApplication&quot; )
+</code></pre><h4 id="t1218-with-remote-payload">T1218 with Remote Payload</h4>
+<p><strong>Sub-Techniques:</strong> T1218.001 Compiled HTML, T1218.005 Mshta, T1218.007, T1218.010 Regsvr32, T1218.011 Rundll32</p>
+<p><strong>Description:</strong> The below query will detect execution of payloads with remote content (urls) in the command line.</p>
+<p><strong>Query:</strong></p>
+<pre><code>SrcProcName In( &quot;mshta.exe&quot;, &quot;hh.exe&quot;, &quot;regsvr32.exe&quot;, &quot;rundll32.exe&quot;, &quot;msiexec.exe&quot; ) AND SrcProcCmdLine RegExp &quot;https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&amp;\/\/=]*)&quot;
+</code></pre><h3 id="t1482-domain-trust-discovery">T1482 Domain Trust Discovery</h3>
+<p><strong>Tactic:</strong> Discovery</p>
+<p><strong>Platforms:</strong> Windows</p>
+<p><strong>Reference:</strong> <a href="https://attack.mitre.org/techniques/T1482/">https://attack.mitre.org/techniques/T1482/</a></p>
+<p><strong>Description:</strong>
+The below query will detect domain trust enumeration/discovery through the execution of Nltest, dsquery, AdFind, and Powershell AD modules (in order).</p>
+<p><strong>Query:</strong></p>
+<pre><code>( TgtProcName = &quot;nltest.exe&quot; AND ( TgtProcCmdLine ContainsCIS &quot;domain_trusts&quot; OR TgtProcCmdLine ContainsCIS &quot;all_trusts&quot; OR TgtProcCmdLine ContainsCIS &quot;dclist&quot; ))
+OR
+( TgtFileInternalName ContainsCIS &quot;AdFind&quot; AND ( TgtProcCmdLine ContainsCIS &quot;trustdmp&quot; OR TgtProcCmdLine ContainsCIS &quot;-f \&quot;(objectcategory=&quot;) )
+OR
+( ProcessCmd ContainsCIS &quot;Get-NetForestTrust&quot; OR ProcessCmd ContainsCIS &quot;Get-NetDomainTrust&quot; )
+</code></pre><h3 id="t1548002-abuse-elevation-control-mechanism">T1548.002 Abuse Elevation Control Mechanism</h3>
+<p><strong>Tactic:</strong> Privilege Escalation, Defense Evasion</p>
+<p><strong>Platforms:</strong> Windows</p>
+<p><strong>Reference:</strong> <a href="https://attack.mitre.org/techniques/T1548/">https://attack.mitre.org/techniques/T1548/</a></p>
+<p><strong>Description:</strong> Elevation control mechanisms such as Windows UAC are often abused to elevate privileges. The below query will detect a few of these techniques, though the methods of UAC bypass are consistently expanding.</p>
+<p><strong>Query:</strong></p>
+<pre><code>( SrcProcCmdLine ContainsCIS &quot;\shell\open\command&quot; AND SrcProcCmdLine RegExp &quot;(?i).*(cmd.exe|fodhelper.exe|ComputerDefaults.exe|sdclt.exe)&quot; AND ObjectType = &quot;process&quot; ) OR ( SrcProcCmdLine ContainsCIS &quot;C:\Windows \S&quot; AND ObjectType != &quot;registry&quot; )
+</code></pre><h3 id="t1027004-compile-after-delivery">T1027.004 Compile After Delivery</h3>
+<p><strong>Tactic:</strong> Defense Evasion</p>
+<p><strong>Platforms:</strong> Windows</p>
+<p><strong>Reference:</strong> <a href="https://attack.mitre.org/techniques/T1027/004/">https://attack.mitre.org/techniques/T1027/004/</a></p>
+<p><strong>Description:</strong> Transfer and compilation of source code is often the easiest way to bypass over-the-wire detections as well as reducing detections. The below query will detect execution by csc or msbuild, limited by compilation with either target or output arguments.</p>
+<p><strong>Query:</strong></p>
+<pre><code>SrcProcName In ( &quot;csc.exe&quot;, &quot;msbuild.exe&quot; ) AND TgtFileIsExecutable IS TRUE AND ( SrcProcCmdLine RegExp &quot;(?i).*\/t.*:.*&quot; OR SrcProcCmdLine RegExp &quot;(?i).*\/o.*:.*exe&quot; )
+</code></pre>
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h"
+              >Read other posts</span
+            >
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+              <span class="button previous">
+                <a href="https://keyboardcrunch.github.io/posts/hacking_a_better_sentinelone/">
+                  <span class="button__icon">←</span>
+                  <span class="button__text">Hacking a Better SentinelOne</span>
+                </a>
+              </span>
+            
+            
+              <span class="button next">
+                <a href="https://keyboardcrunch.github.io/posts/sccm-baselines-sentinelone/">
+                  <span class="button__text">SCCM Baselines for SentinelOne</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+
+    
+      
+        
+
+      
+    
+  </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">© keyboardcrunch</div>
+      
+  </div>
+</footer>
+
+<script src="https://keyboardcrunch.github.io/assets/main.js"></script>
+<script src="https://keyboardcrunch.github.io/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

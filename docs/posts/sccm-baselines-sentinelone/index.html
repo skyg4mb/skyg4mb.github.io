@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>
+        SCCM Baselines for SentinelOne ::
+        keyboardcrunch — Tech stuff from keyboardcrunch
+      </title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="After a recent deployment to upgrade our SentinelOne agents I noticed a few unusual issues with agents; Agents offline in console, unresponsive agent module in Sentinelctl, SentinelAgent Windows service stuck in starting state. This may be specific to my organization&amp;rsquo;s environment, or our deployment method, but may also be due to changes to Anti-Tamper that restrict the use of 3rd party deployment tools through agents 4.6.2 - 4.6.12. On these systems the SentinelCtl."
+/>
+<meta
+  name="keywords"
+  content="blog, personal, tech"
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://keyboardcrunch.github.io/posts/sccm-baselines-sentinelone/" />
+
+
+
+
+
+<link rel="stylesheet" href="https://keyboardcrunch.github.io/assets/style.css" />
+
+<link rel="stylesheet" href="https://keyboardcrunch.github.io/style.css" />
+
+
+<link
+  rel="apple-touch-icon-precomposed"
+  sizes="144x144"
+  href="https://keyboardcrunch.github.io/img/apple-touch-icon-144-precomposed.png"
+/>
+<link rel="shortcut icon" href="https://keyboardcrunch.github.io/img/favicon.png" />
+
+
+<link href="https://keyboardcrunch.github.io/assets/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://keyboardcrunch.github.io/assets/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://keyboardcrunch.github.io/assets/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://keyboardcrunch.github.io/assets/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://keyboardcrunch.github.io/assets/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://keyboardcrunch.github.io/assets/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SCCM Baselines for SentinelOne"/>
+<meta name="twitter:description" content="After a recent deployment to upgrade our SentinelOne agents I noticed a few unusual issues with agents; Agents offline in console, unresponsive agent module in Sentinelctl, SentinelAgent Windows service stuck in starting state. This may be specific to my organization&rsquo;s environment, or our deployment method, but may also be due to changes to Anti-Tamper that restrict the use of 3rd party deployment tools through agents 4.6.2 - 4.6.12. On these systems the SentinelCtl."/>
+
+
+
+<meta property="og:title" content="SCCM Baselines for SentinelOne" />
+<meta property="og:description" content="After a recent deployment to upgrade our SentinelOne agents I noticed a few unusual issues with agents; Agents offline in console, unresponsive agent module in Sentinelctl, SentinelAgent Windows service stuck in starting state. This may be specific to my organization&rsquo;s environment, or our deployment method, but may also be due to changes to Anti-Tamper that restrict the use of 3rd party deployment tools through agents 4.6.2 - 4.6.12. On these systems the SentinelCtl." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://keyboardcrunch.github.io/posts/sccm-baselines-sentinelone/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-03-31T19:10:01-05:00" />
+<meta property="article:modified_time" content="2021-03-31T19:10:01-05:00" /><meta property="og:site_name" content="keyboardcrunch" />
+
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >keyboardcrunch</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="https://github.com/keyboardcrunch/">Projects</a></li>
+        
+      
+        
+          <li><a href="https://twitter.com/keyboard_crunch/">Twitter</a></li>
+        
+      
+      
+      
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="https://github.com/keyboardcrunch/">Projects</a></li>
+      
+    
+      
+        <li><a href="https://twitter.com/keyboard_crunch/">Twitter</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title">SCCM Baselines for SentinelOne</h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          2021-03-31
+        </span>
+
+        
+          
+        
+      
+
+      
+
+
+      
+    </div>
+
+    
+
+    
+
+    <div class="post-content">
+      
+      <p>After a recent deployment to upgrade our SentinelOne agents I noticed a few unusual issues with agents; Agents offline in console, unresponsive agent module in Sentinelctl, SentinelAgent Windows service stuck in starting state. This may be specific to my organization&rsquo;s environment, or our deployment method, but may also be due to changes to Anti-Tamper that restrict the use of 3rd party deployment tools through agents 4.6.2 - 4.6.12. On these systems the <code>SentinelCtl.exe status</code> command told me everything I needed to know, where the Agent Health and Required Actions categories within the Console didn&rsquo;t reflect any problems. So I set out to create baselines within Microsoft Configuration Manager so that we could keep an eye out for these issues.</p>
+<p><em>I feel it&rsquo;s necessary to mention that the issues described above are not a normal occurance, I&rsquo;d never seen these issues myself with previous agent versions, and that our issues were resolved by either upgrading and rebooting or doing clean installs on systems that had been upgraded using SCCM when Anti-Tamper protection explicitly prevented it (causing corrupted agent installation).</em></p>
+<p><em><strong>Update 4/5/2021:</strong> Added a compliance script for <a href="https://gist.github.com/keyboardcrunch/5da6b14a299c7c78c0699613fe7e27bb">evaluating systems</a> that haven&rsquo;t rebooted since a SentinelOne Agent install or upgrade.</em></p>
+<h2 id="creating-the-configuration-item">Creating the Configuration Item</h2>
+<h3 id="step-1---create-the-ci">Step 1 - Create the CI</h3>
+<p><img src="/SCCM_Baseline_For_SentinelOne/CI_1_New_CI.png" alt="New Compliance Item"></p>
+<h3 id="step-2---create-a-new-setting">Step 2 - Create a New Setting</h3>
+<p><img src="/SCCM_Baseline_For_SentinelOne/CI_2_New_Setting.png" alt="New CI Setting"></p>
+<h3 id="step-3---edit-the-discovery-script">Step 3 - Edit the Discovery Script</h3>
+<p>Next step is to edit the Discovery Script. My method was to detect the installed version of SentinelOne by enumerating the Win32Reg_AddRemovePrograms WMI object so we know the execution path for SentinelCtl for running the <code>./SentinelCtl.exe status</code> command, where we then parse the output. <em>You may want to uncomment the final block validating tamper protection. I had it turned off for an SCCM deployment and to make repairing corrupted installs a bit easier.</em></p>
+<p>You can find my Powershell script <a href="https://gist.github.com/keyboardcrunch/6c2451815eb48c42bc3efbc01a809a9d">here</a>.</p>
+<p><img src="/SCCM_Baseline_For_SentinelOne/CI_3_Settings_Edit_Discovery_Script.png" alt="Edit Discovery Script"></p>
+<h3 id="step-4---new-compliance-rule">Step 4 - New Compliance Rule</h3>
+<p>The rule evaluates the data returned from the script, and the script is returning a simple Boolean value for overall compliance (It isn&rsquo;t telling you which component is out of compliance).</p>
+<p><img src="/SCCM_Baseline_For_SentinelOne/CI_4_Settings_New_Compliance_Rule.png" alt="New Compliance Rule"></p>
+<h2 id="creating-the-configuration-baseline">Creating the Configuration Baseline</h2>
+<h3 id="step-1---create-a-new-baseline">Step 1 - Create a New Baseline</h3>
+<p><img src="/SCCM_Baseline_For_SentinelOne/BL_1_New_Baseline.png" alt="Edit Discovery Script"></p>
+<h3 id="step-2---add-the-previous-configuration-item">Step 2 - Add the Previous Configuration Item</h3>
+<p>Here we&rsquo;re just adding the previously created Configuration Item to tell the Baseline what to evaluate.</p>
+<p><img src="/SCCM_Baseline_For_SentinelOne/BL_2_Add_CI_For_Eval.png" alt="Add Configuration Item"></p>
+<h3 id="step-3---deploy-the-baseline">Step 3 - Deploy the Baseline</h3>
+<p>This will look different when created through the wizard workflow, but in this step you&rsquo;re just creating a deployment to any device collection you wish. I have a separate collection for devices missing the SentinelOne agent, so I&rsquo;m only deploying this baseline to a collection of systems with SentinelOne installed, running evaluation every 6 hours (personal preference), and in Monitor mode since remediation would be too complex to automate with anti-tamper and per-agent passwords.</p>
+<p><img src="/SCCM_Baseline_For_SentinelOne/BL_3_Deploy_Settings.png" alt="Deploy the Baseline"></p>
+<h4 id="step-4---create-a-non-compliant-collection-optional">Step 4 - Create a Non-Compliant Collection (optional)</h4>
+<p>This step is completely optional, but you can right-click on any baseline deployment and create a collection of Non-Compliant systems (and it will refresh depending on the collection settings). This is useful for reporting, but you could always review results from the Monitoring tab of SCCM.</p>
+<p><img src="/SCCM_Baseline_For_SentinelOne/BL_4_Create_Collection_From_NonCompliant.png" alt="Edit Discovery Script"></p>
+<h2 id="wrap-up">Wrap-up</h2>
+<p>I just want to add a final disclaimer that this may be completely unnecessary but I have found it necessary for discovering corrupted agent installs, and it has come in handy in verifying test deployments of agent upgrades as I&rsquo;ve noticed (rare) instances of upgraded agents going offline after becoming unresponsive 12hrs-days after upgrade where they just needed to reboot after upgrade.</p>
+<p>Additionally, with a little bit of work the above Powershell script could be repurposed to dump granular configuration data with SentinelCtl for validation of Policy Override settings or even Management Connection status.</p>
+<p>I&rsquo;ve also started reviewing my environment for systems that haven&rsquo;t rebooted since SentinelOne Agent upgrade or installs with <a href="https://gist.github.com/keyboardcrunch/5da6b14a299c7c78c0699613fe7e27bb">this script</a>, because there have been instances where these types of systems have been missing EDR data or failed remediation/kill tasks for one reason or another.</p>
+
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h"
+              >Read other posts</span
+            >
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+              <span class="button previous">
+                <a href="https://keyboardcrunch.github.io/posts/recommended-sentinelone-custom-detections/">
+                  <span class="button__icon">←</span>
+                  <span class="button__text">Recommended SentinelOne Custom Detections</span>
+                </a>
+              </span>
+            
+            
+              <span class="button next">
+                <a href="https://keyboardcrunch.github.io/posts/fun-with-wireguard/">
+                  <span class="button__text">Fun With Wireguard</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+
+    
+      
+        
+
+      
+    
+  </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">© keyboardcrunch</div>
+      
+  </div>
+</footer>
+
+<script src="https://keyboardcrunch.github.io/assets/main.js"></script>
+<script src="https://keyboardcrunch.github.io/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

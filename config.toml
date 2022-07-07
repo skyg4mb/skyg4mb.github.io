@@ -1,0 +1,61 @@
+baseURL = "https://keyboardcrunch.github.io/"
+languageCode = "en-us"
+title = "keyboardcrunch"
+theme = "hello-friend"
+baseurl = "/"
+paginate = 5
+publishDir = "docs"
+
+[params]
+  # dir name of your blog content (default is `content/posts`).
+  # the list of set content will show up on your index page (baseurl).
+  contentTypeName = "posts"
+
+  # "light" or "dark"
+  defaultTheme = "dark"
+
+  # if you set this to 0, only submenu trigger will be visible
+  showMenuItems = 2
+
+  # Show reading time in minutes for posts
+  showReadingTime = false
+
+  # Show table of contents at the top of your posts (defaults to false)
+  # Alternatively, add this param to post front matter for specific posts
+  # toc = true
+
+  # Show full page content in RSS feed items
+  #(default is Description or Summary metadata in the front matter)
+  # rssFullText = true
+ 
+[params.twitter]
+  creator = "keyboard_crunch"
+  site = "keyboardcrunch.com"
+
+[languages]
+  [languages.en]
+    languageName = "English"
+    title = "keyboardcrunch"
+    subtitle = "Tech stuff from keyboardcrunch"
+    owner = "keyboardcrunch"
+    keywords = "blog, personal, tech"
+    copyright = "© keyboardcrunch"
+    menuMore = "Show more"
+    readMore = "Read more"
+    readOtherPosts = "Read other posts"
+    missingContentMessage = "Page not found..."
+    missingBackButtonLabel = "Back to home page"
+
+    [languages.en.params.logo]
+      logoText = "keyboardcrunch"
+      logoHomeLink = "/"
+
+    [languages.en.menu]
+      [[languages.en.menu.main]]
+        identifier = "projects"
+        name = "Projects"
+        url = "https://github.com/keyboardcrunch/"
+      [[languages.en.menu.main]]
+        identifier = "twitter"
+        name = "Twitter"
+        url = "https://twitter.com/keyboard_crunch/"
