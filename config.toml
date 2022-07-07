@@ -1,6 +1,6 @@
-baseURL = "https://keyboardcrunch.github.io/"
+baseURL = "https://skyg4mb.github.io/"
 languageCode = "en-us"
-title = "keyboardcrunch"
+title = "Skyg4mb"
 theme = "hello-friend"
 baseurl = "/"
 paginate = 5
@@ -29,17 +29,17 @@ publishDir = "docs"
   # rssFullText = true
  
 [params.twitter]
-  creator = "keyboard_crunch"
-  site = "keyboardcrunch.com"
+  creator = "skyg4mb"
+  site = "pending.com"
 
 [languages]
   [languages.en]
     languageName = "English"
-    title = "keyboardcrunch"
-    subtitle = "Tech stuff from keyboardcrunch"
-    owner = "keyboardcrunch"
+    title = "skyg4mb"
+    subtitle = "Tech stuff from skyg4mb"
+    owner = "skyg4mbb"
     keywords = "blog, personal, tech"
-    copyright = "© keyboardcrunch"
+    copyright = "© skyg4mb"
     menuMore = "Show more"
     readMore = "Read more"
     readOtherPosts = "Read other posts"
@@ -47,15 +47,15 @@ publishDir = "docs"
     missingBackButtonLabel = "Back to home page"
 
     [languages.en.params.logo]
-      logoText = "keyboardcrunch"
+      logoText = "skyg4mb"
       logoHomeLink = "/"
 
     [languages.en.menu]
       [[languages.en.menu.main]]
         identifier = "projects"
         name = "Projects"
-        url = "https://github.com/keyboardcrunch/"
+        url = "https://github.com/skyg4mb/"
       [[languages.en.menu.main]]
         identifier = "twitter"
         name = "Twitter"
-        url = "https://twitter.com/keyboard_crunch/"
+        url = "https://twitter.com/shadowadm1n/"
