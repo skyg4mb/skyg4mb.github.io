@@ -12,7 +12,7 @@
       <pubDate>Thu, 07 Jul 2022 19:06:10 -0500</pubDate>
       
       <guid>http://skyg4mb.github.io/about/</guid>
-      <description></description>
+      <description>Profesional cybersecurity Engineer from 2010, Redteam, Incident Response, Forensic.</description>
     </item>
     
     <item>
@@ -21,7 +21,8 @@
       <pubDate>Thu, 07 Jul 2022 19:06:04 -0500</pubDate>
       
       <guid>http://skyg4mb.github.io/contact/</guid>
-      <description></description>
+      <description>For contact you can use MyPublicInbox, I try to answer all emails.
+My Public Inbox </description>
     </item>
     
     <item>
@@ -30,7 +31,8 @@
       <pubDate>Thu, 07 Jul 2022 19:03:53 -0500</pubDate>
       
       <guid>http://skyg4mb.github.io/projects/</guid>
-      <description></description>
+      <description>SR (Scene Recon) This project has many times at time, i wish this name was the last, the principal objective of the project is organize information on incident with a large work team. All investigators on project can contribute simultaneously with his own findings.
+Primero hablemos de la infraestructura del proyecto, la cual consiste en una base de datos construida en mongodb, esta base de datos almacenara los objetos correspondientes a todos los registros realizados en la aplicacion la igual que usuarios y roles de trabajo.</description>
     </item>
     
   </channel>
