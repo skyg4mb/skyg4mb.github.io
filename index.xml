@@ -32,7 +32,7 @@ My Public Inbox </description>
       
       <guid>http://skyg4mb.github.io/projects/</guid>
       <description>SR (Scene Recon) This project has many times at time, i wish this name was the last, the principal objective of the project is organize information on incident with a large work team. All investigators on project can contribute simultaneously with his own findings.
-Primero hablemos de la infraestructura del proyecto, la cual consiste en una base de datos construida en mongodb, esta base de datos almacenara los objetos correspondientes a todos los registros realizados en la aplicacion la igual que usuarios y roles de trabajo.</description>
+First of all talk about project infraestructure, consist in one database build in mongodb, this database store objects of application like machines, timeline, users and roles.</description>
     </item>
     
   </channel>
