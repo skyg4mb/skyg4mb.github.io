@@ -154,7 +154,7 @@
             </span>
             <span class="reading-time">
               <i class="fa fa-clock-o" aria-hidden="true"></i>
-              2-minute read
+              3-minute read
             </span>
           </div>
           
@@ -172,7 +172,7 @@
   </a>
 </h1>
 <p>SceneRecon es una aplicacion contruida con la finalidad de facilitar el control y flujo de informacion durante un incidente, permite almacenar todos los datos necesarios para documentar el incidente y graficar de manera automatica los diferentes movimientos que tuvieron los adversarios dentro de la red.</p>
-<p>Primero que todo la aplicacion se compone de tres contenedores completamente separados entre ellos.</p>
+<p>La aplicacion se compone de tres contenedores completamente separados entre ellos.</p>
 <ul>
 <li>Base de datos</li>
 <li>Backend</li>
@@ -188,7 +188,7 @@
   </a>
 </h2>
 <p>Para el despliegue usaremos docker compose (imprescindible la previa instalacion de docker en su maquina.)</p>
-<p>Con el siguiente comando clonamos el proyecto docker compose.</p>
+<p>Con el siguiente comando clonamos el proyecto.</p>
 <p>| (Alerta!! el proyecto tiene varios ficheros que explicare mas adelante, no dejes la configuracion por defecto si vas a hacer un despliegue productivo.) |</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>$ git clone https://github.com/skyg4mb/SceneRecon
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>$ cd SceneRecon
@@ -196,7 +196,41 @@
 <div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>$ docker compose up -d
 </span></span></code></pre></div><p>Al final obtendremos una salida como la siguiente:</p>
 <p><img src="../images/dockercomposelaunch.png" alt="image"></p>
-<p>El acceso a la aplicacion lo encontrara en http://localhost, primero debe registrar un usuario y posteriormente acticar el 2fa con cualquier aplicacion OTP, Google Authenticator por ejemplo.</p>
+<p>El acceso a la aplicacion lo encontrara en http://localhost, primero debe registrar un usuario y posteriormente activar el 2fa con cualquier aplicacion OTP, Google Authenticator por ejemplo.</p>
+<p>Una vez ingresamos a la aplicacion podremos ver una pantalla de login, es clasica pantalla de usuario y password, sin embargo primero se debe realizar el registro de un usuario.</p>
+<p><img src="../images/scenelogin.png" alt="Loginpage"></p>
+<p>La pantalla de registro es en realidad muy simple, solo debemos colocar un correo electronico y una pass, anteriormente era necesario verificacion de correo electronico, esta funcionalidad la he desactivado para fines practicos, sin embargo es sencilla su activacion.</p>
+<p><img src="../images/sceneregister.png" alt="SceneRegister"></p>
+<p>Una vez completado el registro retornaremos automaticamente a la pantalla de login, alli escribimos nuestro usuario y pass, la primer ocasion que nos autenticamos exigira el registro con una aplicacion OTP, puede ser por ejemplo Google Authenticator, escaneamos el QR code y tecleamos el codigo para activar el 2FA.</p>
+<p><img src="../images/scene2fa.png" alt="2fa"></p>
+<p>Ingresamos a la aplicacion y solo tendremos una imagen como la que vemos a continuacion.</p>
+<p><img src="../images/scenehome.png" alt="scenehome"></p>
+<p>Es momento de crear nuestro primer incidente:</p>
+<ul>
+<li>CaseID: Codigo que quieres dar al incidente.</li>
+<li>Client: Nombre del cliente (regularmente es un nombre clave)</li>
+<li>ClientLogo: URL hacia una imagen del cliente (En un release colocare upload de ficheros)</li>
+<li>Summary: (Breve resumen del incidente)</li>
+</ul>
+<p><img src="../images/createIncident.png" alt="createIncident"></p>
+<p>Aqui debemos actualizar la pagina o ir a home (Promero arreglar esto y que vaya directo al incidente).</p>
+<p>Obtendremos una pagina con todas las opciones de informacion del incidente:</p>
+<ul>
+<li>Eventos</li>
+<li>Compromise Accounts</li>
+<li>OSint</li>
+<li>Malware</li>
+<li>Evidence</li>
+<li>Case Notes</li>
+<li>Systems</li>
+<li>Network IoC</li>
+<li>Investigators</li>
+<li>Action Items</li>
+<li>Exfiltration</li>
+</ul>
+<p><img src="../images/firstpage.png" alt="Page"></p>
+<p>Finalmente esta es nuestra aplicacion, lista para ser usada</p>
+<p><img src="../images/allpage.png" alt="Finally"></p>
 
       </div>
 
