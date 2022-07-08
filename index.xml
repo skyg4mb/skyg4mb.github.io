@@ -5,7 +5,19 @@
     <link>http://skyg4mb.github.io/</link>
     <description>Recent content on skyg4mb</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language><atom:link href="http://skyg4mb.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <lastBuildDate>Fri, 08 Jul 2022 16:09:07 -0500</lastBuildDate><atom:link href="http://skyg4mb.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Scene recon deployment</title>
+      <link>http://skyg4mb.github.io/posts/scenerecondeploy/</link>
+      <pubDate>Fri, 08 Jul 2022 16:09:07 -0500</pubDate>
+      
+      <guid>http://skyg4mb.github.io/posts/scenerecondeploy/</guid>
+      <description>SceneRecon deployment SceneRecon es una aplicacion contruida con la finalidad de facilitar el control y flujo de informacion durante un incidente, permite almacenar todos los datos necesarios para documentar el incidente y graficar de manera automatica los diferentes movimientos que tuvieron los adversarios dentro de la red.
+Primero que todo la aplicacion se compone de tres contenedores completamente separados entre ellos.
+Base de datos Backend Frontend En la base de datos encontraremos una mongodb, este contenedor por defecto no tendra persistencia en su informacion, es por esto que recomiendo un despliegue persistente de docker en este sentido, en un blog posterior explicare como realizar este procedimiento.</description>
+    </item>
+    
     <item>
       <title>About</title>
       <link>http://skyg4mb.github.io/about/</link>
