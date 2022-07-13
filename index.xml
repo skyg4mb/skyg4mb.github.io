@@ -6,7 +6,16 @@
     <description>Recent content on skyg4mb</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 08 Jul 2022 16:09:07 -0500</lastBuildDate><atom:link href="http://skyg4mb.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 13 Jul 2022 15:41:15 -0500</lastBuildDate><atom:link href="http://skyg4mb.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OSint on scribd</title>
+      <link>http://skyg4mb.github.io/posts/osintonscribd/</link>
+      <pubDate>Wed, 13 Jul 2022 15:41:15 -0500</pubDate>
+      
+      <guid>http://skyg4mb.github.io/posts/osintonscribd/</guid>
+      <description>Scribd es un herramienta en linea que nos da la posibbilidad de acceder a infinidad de documentos o libros, como herramienta de aprendizaje me ha parecido siempre imprescindible, tiene una enorme cantidad de recursos. Sin embargo tiene una funcionalidad muy llamativa, si quieres obtener un documento de manera gratuita tienes la opcion de subir otro documento, la condicion es que el documento que subes no este en la plataforma con anterioridad, esto ha llevado a mucha gente a subir documentos privados, corporativos, con informacion confidencial, etc.</description>
+    </item>
+    
     <item>
       <title>Scene recon deployment</title>
       <link>http://skyg4mb.github.io/posts/scenerecondeploy/</link>
